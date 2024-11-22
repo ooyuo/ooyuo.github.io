@@ -24,7 +24,6 @@ tags: [react-native, android, namespace, automation]
 "scripts": {
   "postinstall": "node scripts/add-namespaces.ts && patch-package"
 }
-
 ```
 
 ### 2. gradle.properties에 namespace 정보 추가
@@ -36,7 +35,6 @@ android.enableNamespaceCheck=true
 react-native-gesture-handler.namespace=com.swmansion.gesturehandler
 react-native-webview.namespace=com.reactnativecommunity.webview
 # ... 기타 라이브러리들의 namespace
-
 ```
 
 이렇게 하면 프로젝트에서 사용하는 모든 라이브러리의 namespace를 한 곳에서 관리할 수 있다.
@@ -44,6 +42,102 @@ react-native-webview.namespace=com.reactnativecommunity.webview
 ### 3. namespace 자동 추가 스크립트 작성
 
 가장 핵심적인 부분은 `scripts/add-namespaces.ts` 파일이다. 이 스크립트는 node_modules 내의 각 React Native 라이브러리의 build.gradle 파일을 찾아서 namespace를 자동으로 추가해준다.
+
+```typescript
+const fs = require('fs');
+const path = require('path');
+
+const nodeModulesPath = path.join(__dirname, '..', 'node_modules');
+
+const namespaceMap = {
+  'react-native-gesture-handler': 'com.swmansion.gesturehandler',
+  'react-native-firebase-messaging': 'io.invertase.firebase.messaging',
+  'react-native-kakao-share-link': 'com.reactnativekakaosharelink',
+  'react-native-get-random-values': 'org.linusu',
+  'react-native-webview': 'com.reactnativecommunity.webview',
+  '@react-native-firebase/app': 'io.invertase.firebase',
+  '@react-native-firebase/dynamic-links': 'io.invertase.firebase.dynamiclinks',
+  'react-native-inappbrowser-reborn': 'com.proyecto26.inappbrowser',
+  'react-native-safe-area-context': 'com.th3rdwave.safeareacontext',
+  'react-native-channel-plugin': 'com.zoyi.channel.rn',
+  'react-native-screens': 'com.swmansion.rnscreens',
+  '@react-native-async-storage/async-storage': 'com.reactnativecommunity.asyncstorage',
+  '@react-native-community/masked-view': 'org.reactnative.maskedview',
+  '@react-native-seoul/kakao-login': 'com.dooboolab.kakaologins',
+  '@invertase/react-native-apple-authentication': 'com.RNAppleAuthentication',
+  'react-native-reanimated': 'com.swmansion.reanimated',
+  'react-native-svg': 'com.horcrux.svg',
+  'react-native-device-info': 'com.learnium.RNDeviceInfo',
+  'react-native-push-notification': 'com.dieam.reactnativepushnotification',
+  'react-native-permissions': 'com.zoontek.rnpermissions',
+  'react-native-splash-screen': 'org.devio.rn.splashscreen',
+  '@react-native-cookies/cookies': 'com.reactnativecommunity.cookies',
+};
+
+function addNamespaceToGradleFile(gradleFilePath, packageName) {
+  try {
+    let content = fs.readFileSync(gradleFilePath, 'utf8');
+
+    // 이미 namespace가 있는지 확인
+    if (!content.includes('namespace')) {
+      // android { 블록 찾기
+      const androidBlockRegex = /android\s*{/;
+      if (androidBlockRegex.test(content)) {
+        // namespace 추가
+        content = content.replace(
+          androidBlockRegex,
+          `android {\n    namespace "${packageName}"`,
+        );
+
+        fs.writeFileSync(gradleFilePath, content, 'utf8');
+        console.log(`✅ Added namespace to ${gradleFilePath}`);
+      }
+    } else {
+      console.log(`ℹ️ Namespace already exists in ${gradleFilePath}`);
+    }
+  } catch (error) {
+    console.error(`❌ Error processing ${gradleFilePath}:`, error);
+  }
+}
+
+function processNodeModules() {
+  console.log('🔍 Starting to process React Native libraries...');
+
+  // namespaceMap의 각 항목에 대해 처리
+  Object.entries(namespaceMap).forEach(([lib, namespace]) => {
+    let androidBuildGradle;
+
+    if (lib.startsWith('@')) {
+      const [org, name] = lib.slice(1).split('/');
+      androidBuildGradle = path.join(
+        nodeModulesPath,
+        '@' + org,
+        name,
+        'android',
+        'build.gradle',
+      );
+    } else {
+      androidBuildGradle = path.join(
+        nodeModulesPath,
+        lib,
+        'android',
+        'build.gradle',
+      );
+    }
+
+    if (fs.existsSync(androidBuildGradle)) {
+      addNamespaceToGradleFile(androidBuildGradle, namespace);
+    } else {
+      console.log(`⚠️ Could not find build.gradle for ${lib}`);
+    }
+  });
+
+  console.log('✨ Finished processing libraries');
+}
+
+// 스크립트 실행
+processNodeModules();
+```
 
 스크립트의 주요 기능은 다음과 같다:
 
