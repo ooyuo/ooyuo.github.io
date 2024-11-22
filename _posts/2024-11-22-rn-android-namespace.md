@@ -162,4 +162,4 @@ processNodeModules();
 
 React Native 프로젝트에서 이런 반복적인 작업들을 자동화하는 것은 매우 중요하다. 특히 팀 프로젝트에서는 더욱 그렇다. 이러한 자동화를 통해 개발자들은 본질적인 개발 작업에 더 집중할 수 있게 되었다.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/044c89f8-6b69-4369-934d-15caa8a21a57/deb01970-5a31-48f9-a19b-77b251345c1e/image.png)
+![npm install > 출력 결과](/assets/images/posts/2024-11-22/rn-android-namespace.png)
