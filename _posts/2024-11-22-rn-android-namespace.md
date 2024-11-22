@@ -154,6 +154,8 @@ processNodeModules();
 2. postinstall 스크립트가 실행되어 필요한 라이브러리에 namespace가 추가됨
 3. patch-package가 실행되어 수정된 내용이 패치로 저장됨
 
+![npm install > 출력 결과](/assets/images/posts/2024-11-22/rn-android-namespace.png)
+
 출력 결과를 보면 어떤 라이브러리에 namespace가 추가되었고, 어떤 것은 이미 namespace가 있어서 건너뛰었는지 확인할 수 있다.
 
 ## 마무리
@@ -161,5 +163,3 @@ processNodeModules();
 이 자동화 작업으로 개발 환경 설정이 훨씬 수월해졌다. 새로운 팀원이 프로젝트를 셋업할 때도 별도의 수동 작업 없이 `npm install` 한 번으로 모든 설정이 완료된다.
 
 React Native 프로젝트에서 이런 반복적인 작업들을 자동화하는 것은 매우 중요하다. 특히 팀 프로젝트에서는 더욱 그렇다. 이러한 자동화를 통해 개발자들은 본질적인 개발 작업에 더 집중할 수 있게 되었다.
-
-![npm install > 출력 결과](/assets/images/posts/2024-11-22/rn-android-namespace.png)
