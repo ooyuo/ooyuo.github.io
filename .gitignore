@@ -25,3 +25,8 @@ package-lock.json
 # Misc
 _sass/dist
 assets/js/dist
+
+_site/
+.sass-cache/
+*.swp
+.DS_Store
