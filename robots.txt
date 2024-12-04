@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap
 Sitemap: https://ooyuo.github.io/sitemap.xml
