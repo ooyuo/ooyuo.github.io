@@ -12,7 +12,6 @@ lang: en
 timezone: Asia/Seoul
 
 plugins:
-  - jekyll-sitemap
   - jekyll-archives
   - jekyll-seo-tag
 
