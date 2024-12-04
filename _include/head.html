@@ -3,6 +3,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-D4EVVG7BRT"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-D4EVVG7BRT");
+  </script>
+
   <!-- Title and Meta Description -->
   {% seo title=false %}
   <title>
@@ -45,20 +59,6 @@
 
   <!-- JavaScript -->
   <script src="{{ '/assets/js/main.js' | relative_url }}" async></script>
-
-  <!-- Google tag (gtag.js) -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-D4EVVG7BRT"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-    gtag("config", "G-D4EVVG7BRT");
-  </script>
 
   <!-- RSS Feed -->
   {% feed_meta %}
