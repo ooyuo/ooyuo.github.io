@@ -4,7 +4,6 @@ date: 2024-12-04 14:00:00 +0900
 categories: [Web Analytics, Project Review]
 tags: [google analytics, ga4, google tag manager, gtm, react, typescript, web view]
 ---
-# GA4와 GTM 적용기: 웹뷰 프로젝트의 사용자 분석하기
 
 ## 배경
 
@@ -32,10 +31,10 @@ React 프로젝트에 GA4를 적용하기 위해 다음과 같은 도구들을 �
 ![관리 > 만들기 > 속성 클릭](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_1.png)
 
 3. 속성 설정:
+![속성 설정](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_3.png)
     - 속성 이름(필수): [속성 이름]
     - 보고 시간대: "대한민국"
     - 통화: "KRW-한국 원"
-![속성 설정](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_3.png)
 
 4. 비즈니스 세부정보 입력:
 ![비즈니스 세부정보 입력](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_4.png)
