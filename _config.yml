@@ -210,6 +210,8 @@ exclude:
   - LICENSE
   - "*.config.js"
   - package*.json
+  - assets/feed.xml
+  - assets/robots.txt
 
 jekyll-archives:
   enabled: [categories, tags]
@@ -232,3 +234,6 @@ sitemap:
       - "/categories/"
       - "/tags/"
       - "/archives/"
+
+google_analytics:
+  id: "G-D4EVVG7BRT"

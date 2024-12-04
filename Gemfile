@@ -13,3 +13,8 @@ platforms :mingw, :x64_mingw, :mswin, :jruby do
 end
 
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
+
+# 새로 추가하는 gems
+gem "logger"
+gem "csv"
+gem "base64"
