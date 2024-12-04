@@ -1,3 +1,9 @@
+---
+title: GA4와 GTM 적용기 - 웹뷰 프로젝트의 사용자 분석
+date: 2024-12-04 14:00:00 +0900
+categories: [Web Analytics, Project Review]
+tags: [google analytics, ga4, google tag manager, gtm, react, typescript, web view]
+---
 # GA4와 GTM 적용기: 웹뷰 프로젝트의 사용자 분석하기
 
 ## 배경
