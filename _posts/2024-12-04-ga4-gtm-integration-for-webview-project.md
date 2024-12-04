@@ -20,7 +20,7 @@ React 프로젝트에 GA4를 적용하기 위해 다음과 같은 도구들을 �
 
 먼저 Google Analytics에서 데이터를 수집하기 위한 기본 설정을 했다:
 
-1. Google Analytics([analytics.google.com](http://analytics.google.com/))에 접속하여 로그인
+1. Google Analytics([analytics.google.com](https://analytics.google.com/))에 접속하여 로그인
 
 2. 관리 > 만들기 > 속성 클릭
 ![관리 > 만들기 > 속성 클릭](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_1.png)
