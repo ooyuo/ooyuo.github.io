@@ -10,9 +10,9 @@
 
 React 프로젝트에 GA4를 적용하기 위해 다음과 같은 도구들을 선택했다:
 
-- react-ga: Google Analytics와 React를 연동하기 위한 라이브러리
-- react-gtm-module: Google Tag Manager 설정을 위한 라이브러리
-- react-router-dom: 라우팅 기반 페이지뷰 추적을 위해 사용
+- [react-ga](https://www.npmjs.com/package/react-ga): Google Analytics와 React를 연동하기 위한 라이브러리
+- [react-gtm-module](https://www.npmjs.com/package/react-gtm-module): Google Tag Manager 설정을 위한 라이브러리
+- [@types/react-gtm-module](https://www.npmjs.com/package/@types/react-gtm-module): react-gtm-module의 TypeScript 타입 정의
 
 ## 구현 과정
 
