@@ -222,3 +222,13 @@ jekyll-archives:
 
 plugins:
   - jekyll-sitemap
+
+# Sitemap settings
+sitemap:
+  lastmod:
+    enabled: true
+    exclude:
+      - "/404.html"
+      - "/categories/"
+      - "/tags/"
+      - "/archives/"
