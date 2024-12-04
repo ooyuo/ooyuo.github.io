@@ -193,6 +193,11 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: "sitemap.xml"
+    values:
+      layout: null
+      sitemap: false
 
 sass:
   style: compressed
