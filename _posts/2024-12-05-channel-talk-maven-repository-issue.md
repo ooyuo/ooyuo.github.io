@@ -39,7 +39,7 @@ tags:
 
 수정된 내용:
 
-```
+```typescript
 buildscript {
     repositories {
         google()
