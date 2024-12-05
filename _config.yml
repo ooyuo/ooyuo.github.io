@@ -221,13 +221,15 @@ exclude:
   - package*.json
 
 jekyll-archives:
-  enabled: [categories, tags]
+  enabled:
+    - categories
+    - tags
   layouts:
     category: categories
     tag: tags
   permalinks:
-    tag: /tags/:name/
     category: /categories/:name/
+    tag: /tags/:name/
 
 # Sitemap settings
 sitemap:
