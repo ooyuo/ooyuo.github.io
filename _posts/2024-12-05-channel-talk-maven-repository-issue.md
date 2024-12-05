@@ -29,7 +29,7 @@ tags:
 주요 변경사항:
 
 - Maven Central 지원이 2025년 8월 1일부터 중단될 예정이다.
-- 새로운 maven repository([maven.channel.io](http://maven.channel.io/))를 사용해야 한다.
+- 새로운 maven repository([maven.channel.io](https://maven.channel.io/))를 사용해야 한다.
 
 ![image.png](/assets/img/posts/2024-12-05/2024-12-05-channel-talk-maven-repository-issue_3.png)
 
