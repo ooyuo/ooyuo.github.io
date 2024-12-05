@@ -5,15 +5,13 @@ layout: default
 <h1 class="page-heading">Category: {{ page.title }}</h1>
 
 <div class="post-list">
-  {% for post in page.posts %}
+  {% assign filtered_posts = page.posts | where_exp: "post", "post.title !=
+  '배경' and post.title != '문제 상황'" %} {% for post in filtered_posts %}
   <article class="post-item">
     <h2>
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     </h2>
     <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
-    {% if post.excerpt %}
-    <p>{{ post.excerpt }}</p>
-    {% endif %}
   </article>
   {% endfor %}
 </div>
