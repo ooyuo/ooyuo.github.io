@@ -11,10 +11,6 @@ lang: en
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: Asia/Seoul
 
-plugins:
-  - jekyll-archives
-  - jekyll-seo-tag
-
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
@@ -192,11 +188,6 @@ defaults:
     values:
       layout: page
       permalink: /:title/
-  - scope:
-      path: "sitemap.xml"
-    values:
-      layout: null
-      sitemap: false
 
 sass:
   style: compressed
@@ -228,19 +219,6 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
-  type: liquid
-
-# Sitemap settings
-sitemap:
-  lastmod:
-    enabled: true
-    exclude:
-      - "/404.html"
-      - "/categories/"
-      - "/tags/"
-      - "/archives/"
-      - /categories/*
-      - /tags/*
 
 google_analytics:
   id: "G-D4EVVG7BRT"
