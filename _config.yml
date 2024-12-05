@@ -223,8 +223,8 @@ exclude:
 jekyll-archives:
   enabled: [categories, tags]
   layouts:
-    category: category
-    tag: tag
+    category: categories
+    tag: tags
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
@@ -238,6 +238,8 @@ sitemap:
       - "/categories/"
       - "/tags/"
       - "/archives/"
+      - /categories/*
+      - /tags/*
 
 google_analytics:
   id: "G-D4EVVG7BRT"
