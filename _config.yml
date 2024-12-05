@@ -223,11 +223,12 @@ exclude:
 jekyll-archives:
   enabled: [categories, tags]
   layouts:
-    category: categories
-    tag: tags
+    category: category
+    tag: tag
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+  type: liquid
 
 # Sitemap settings
 sitemap:
