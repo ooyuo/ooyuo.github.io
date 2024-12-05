@@ -192,11 +192,6 @@ defaults:
     values:
       layout: page
       permalink: /:title/
-  - scope:
-      path: "sitemap.xml"
-    values:
-      layout: null
-      sitemap: false
 
 sass:
   style: compressed
@@ -228,7 +223,6 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
-  type: liquid
 
 # Sitemap settings
 sitemap:
