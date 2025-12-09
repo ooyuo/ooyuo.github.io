@@ -338,9 +338,6 @@ await flow.run(
 
 ![레고 블록 비유 다이어그램](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_7.png)
 
-
----
-
 ## 한계와 트레이드오프
 
 ### 초기 설정 비용
@@ -369,6 +366,99 @@ export const wait = {
 }
 ```
 
+---
+
+## 추가 기능
+
+### 1. 타입 안전성
+
+필드명 오타를 컴파일 타임에 잡을 수 있다. `createFormInteractions`가 제네릭으로 키를 추론하기 때문:
+
+```typescript
+// 필드 타입 정의
+type OrdererFieldName = 'name' | 'email' | 'phone'
+
+const ORDERER_PLACEHOLDERS: FieldLabelMap<OrdererFieldName> = {
+  name: '이름을 입력해 주세요',
+  email: '이메일을 입력해 주세요',
+  phone: '숫자만 입력해 주세요',
+}
+
+const ordererForm = createFormInteractions(ORDERER_PLACEHOLDERS, 'placeholder')
+
+// 이제 오타를 잡아준다
+ordererForm.fill(ctx, 'namee', value)  // ❌ 타입 에러: 'namee'는 없음
+ordererForm.fill(ctx, 'name', value)   // ✅ OK
+```
+
+`createFormInteractions` 구현:
+
+```typescript
+export function createFormInteractions<TFieldName extends string>(
+  fieldMap: FieldLabelMap<TFieldName>,  // Record<TFieldName, string>
+  mode: FindByMode = 'label'
+) {
+  return {
+    async fill(ctx: TestFlowContext, fieldName: TFieldName, value: string) {
+      // fieldName이 TFieldName으로 제한됨
+    }
+  }
+}
+```
+
+### 2. 디버깅 로그
+
+스텝이 많아지면 어디서 실패했는지 찾기 어렵다. 각 스텝 실행 시 로깅을 추가했다:
+
+```typescript
+async run(...steps: TestStep[]) {
+  for (const step of steps) {
+    const stepName = step.name || 'anonymous'
+    console.log(`[TestFlow] ▶ ${stepName}`)
+
+    try {
+      const result = await step(context)
+      console.log(`[TestFlow] ✓ ${stepName}`)
+      if (result) Object.assign(context.data, result)
+    } catch (error) {
+      console.error(`[TestFlow] ✗ ${stepName} failed`)
+      throw error
+    }
+  }
+}
+```
+
+Storybook Interactions 패널에서 로그가 보이므로, 실패 지점을 빠르게 파악할 수 있다.
+
+### 3. 스텝 간 데이터 공유
+
+`TestFlowContext`의 `data` 필드를 활용하면 스텝 간 동적 값을 전달할 수 있다:
+
+```typescript
+// 주문 생성 후 ID 저장
+const createOrderAndSaveId: TestStep = async (ctx) => {
+  await button.click(ctx, '주문하기')
+  await wait.forText(ctx, '주문이 완료되었습니다')
+
+  const orderId = ctx.canvas.getByTestId('order-id').textContent
+  return { orderId }  // data에 자동 병합됨
+}
+
+// 저장된 ID로 검증
+const verifyOrderInList: TestStep = async (ctx) => {
+  const { orderId } = ctx.data as { orderId: string }
+  await verify.textExists(ctx, orderId)
+}
+
+// 조합해서 사용
+await flow.run(
+  createOrderAndSaveId,
+  navigateToOrderList,
+  verifyOrderInList  // 위에서 저장한 orderId 사용
+)
+```
+
+스텝 함수가 객체를 반환하면 `context.data`에 병합되는 구조다.
 ---
 
 ## 마무리
