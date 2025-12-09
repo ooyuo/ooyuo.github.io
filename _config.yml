@@ -16,7 +16,7 @@ timezone: Asia/Seoul
 
 title: durun.log # the main title
 
-tagline: 엉망잔칭 프론트엔드 # it will display as the subtitle
+tagline: "제 컴에선 돌아가는데요" # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Hello World!
