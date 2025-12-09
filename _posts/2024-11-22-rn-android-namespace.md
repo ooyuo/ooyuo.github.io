@@ -1,8 +1,14 @@
 ---
-title: React Native Android namespace 자동화하기
-date: 2024-11-22 10:40:00 +0900
-categories: [React Native, Android]
-tags: [react-native, android, namespace, automation]
+title: "React Native Android namespace 자동화하기"
+date: 2024-11-22
+categories:
+  - Development
+  - React Native
+tags:
+  - React Native
+  - Android
+  - Namespace
+  - Automation
 ---
 
 

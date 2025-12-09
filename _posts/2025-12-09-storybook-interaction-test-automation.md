@@ -1,4 +1,18 @@
-# Storybook 인터랙션 테스트, 함수형으로 설계하기
+---
+title: "Storybook 인터랙션 테스트, 함수형으로 설계하기"
+date: 2025-12-09
+categories:
+  - Development
+  - Testing
+tags:
+  - Storybook
+  - Testing
+  - Interaction Test
+  - Functional Programming
+  - React
+  - Frontend
+  - Test Automation
+---
 
 ## TL;DR
 
