@@ -10,7 +10,7 @@
   },
   "headline": "{{ page.title | escape }}",
   "description": "{{ page.description | default: page.excerpt | strip_html | truncate: 160 | escape }}",
-  "image": {% if page.image %}"{% include media-url.html src=page.image.path | default: page.image absolute=true %}"{% else %}"{{ site.social_preview_image | absolute_url }}"{% endif %},
+  "image": "{{ page.image.path | default: page.image | default: site.social_preview_image | absolute_url }}",
   "author": {
     "@type": "Person",
     "name": "{{ site.social.name }}",
@@ -43,11 +43,6 @@
     "@type": "Person",
     "name": "{{ site.social.name }}",
     "url": "{{ site.social.links[0] }}"
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "{{ site.url }}/search/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
   }
 }
 </script>
@@ -64,16 +59,16 @@
       "name": "Home",
       "item": "{{ site.url }}"
     }
-    {% if page.categories.size > 0 %}
-    ,{
+    {% if page.categories.size > 0 %},
+    {
       "@type": "ListItem",
       "position": 2,
       "name": "{{ page.categories[0] }}",
       "item": "{{ site.url }}/categories/{{ page.categories[0] | slugify }}/"
     }
     {% endif %}
-    {% if page.title %}
-    ,{
+    {% if page.title %},
+    {
       "@type": "ListItem",
       "position": {% if page.categories.size > 0 %}3{% else %}2{% endif %},
       "name": "{{ page.title | escape }}"
