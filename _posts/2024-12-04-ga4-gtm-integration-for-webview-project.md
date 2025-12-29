@@ -1,6 +1,7 @@
 ---
 title: "GA4와 GTM 적용기 - 웹뷰 프로젝트의 사용자 분석"
 date: 2024-12-04
+description: "웹뷰 프로젝트에 GA4와 GTM을 적용하여 사용자 행동을 분석하는 방법. React 환경에서의 구현 가이드와 실전 팁."
 categories:
   - Development
   - Web Analytics

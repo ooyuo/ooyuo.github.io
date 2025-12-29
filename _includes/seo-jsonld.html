@@ -1,0 +1,84 @@
+<!-- JSON-LD Structured Data for SEO -->
+{% if page.layout == 'post' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "headline": "{{ page.title | escape }}",
+  "description": "{{ page.description | default: page.excerpt | strip_html | truncate: 160 | escape }}",
+  "image": {% if page.image %}"{% include media-url.html src=page.image.path | default: page.image absolute=true %}"{% else %}"{{ site.social_preview_image | absolute_url }}"{% endif %},
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.social.name }}",
+    "url": "{{ site.social.links[0] }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.avatar | absolute_url }}"
+    }
+  },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "keywords": "{{ page.tags | join: ', ' }}"
+}
+</script>
+{% endif %}
+
+{% if page.layout == 'home' or page.url == '/' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site.title }}",
+  "description": "{{ site.description | escape }}",
+  "url": "{{ site.url }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.social.name }}",
+    "url": "{{ site.social.links[0] }}"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ site.url }}/search/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ site.url }}"
+    }
+    {% if page.categories.size > 0 %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ page.categories[0] }}",
+      "item": "{{ site.url }}/categories/{{ page.categories[0] | slugify }}/"
+    }
+    {% endif %}
+    {% if page.title %}
+    ,{
+      "@type": "ListItem",
+      "position": {% if page.categories.size > 0 %}3{% else %}2{% endif %},
+      "name": "{{ page.title | escape }}"
+    }
+    {% endif %}
+  ]
+}
+</script>

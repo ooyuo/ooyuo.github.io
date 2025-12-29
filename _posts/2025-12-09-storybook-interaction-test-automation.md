@@ -1,5 +1,6 @@
 ---
 title: "Storybook 인터랙션 테스트, 함수형으로 설계하기"
+description: "Storybook 인터랙션 테스트를 함수형으로 설계하여 재사용성을 높이는 방법. 레고 블록처럼 조립하는 테스트 시나리오 작성 패턴."
 date: 2025-12-09
 categories:
   - Development

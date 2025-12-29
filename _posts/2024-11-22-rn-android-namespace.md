@@ -1,6 +1,7 @@
 ---
 title: "React Native Android namespace 자동화하기"
 date: 2024-11-22
+description: "React Native 업그레이드 시 Android 라이브러리의 namespace를 자동으로 추가하는 스크립트 구현 방법. postinstall 훅을 활용한 자동화 가이드."
 categories:
   - Development
   - React Native

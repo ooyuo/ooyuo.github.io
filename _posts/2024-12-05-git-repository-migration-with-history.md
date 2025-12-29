@@ -1,5 +1,6 @@
 ---
 title: "Git Repository 이전하기: 커밋 히스토리 유지와 충돌 해결하기"
+description: "Git 레포지토리를 이전할 때 커밋 히스토리를 유지하면서 충돌을 해결하는 방법. git remote, fetch, merge 명령어 활용 가이드."
 date: 2024-12-05
 categories:
   - Development

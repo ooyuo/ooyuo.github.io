@@ -1,6 +1,7 @@
 ---
 title: "Channel Talk 업데이트로 인한 Maven Repository 설정 이슈 해결하기"
 date: 2024-12-05
+description: "Channel Talk v0.9.0 업데이트로 인한 Maven Repository 설정 변경 이슈 해결 방법. React Native Android 빌드 오류 대응 가이드."
 categories: 
   - Troubleshooting
   - Development
