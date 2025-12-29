@@ -71,3 +71,30 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  indexnow:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Wait for deployment to propagate
+        run: sleep 30
+
+      - name: Submit URLs to IndexNow
+        run: |
+          # Fetch sitemap and extract URLs
+          URLS=$(curl -s "https://ooyuo.github.io/sitemap.xml" | grep -oP '(?<=<loc>)[^<]+' | head -20)
+
+          # Convert to JSON array
+          URL_JSON=$(echo "$URLS" | jq -R -s -c 'split("\n") | map(select(length > 0))')
+
+          # Submit to IndexNow
+          curl -X POST "https://api.indexnow.org/IndexNow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{
+              \"host\": \"ooyuo.github.io\",
+              \"key\": \"fadc0d58c30a4a3ca2cc3625b7761549\",
+              \"keyLocation\": \"https://ooyuo.github.io/fadc0d58c30a4a3ca2cc3625b7761549.txt\",
+              \"urlList\": $URL_JSON
+            }"
+
+          echo "IndexNow submission completed"
