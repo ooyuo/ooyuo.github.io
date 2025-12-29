@@ -20,7 +20,7 @@ tags:
 
 최근 팀 프로젝트에서 흥미로운 이슈를 마주했다. 새로운 팀원이 `package.json`의 디펜던시를 업데이트하는 과정에서 Channel Talk 버전이 올라갔고, 그 이후부터 프로젝트 실행에 문제가 발생했다.
 
-![image.png](/assets/img/posts/2024-12-05/2024-12-05-channel-talk-maven-repository-issue_2.png)
+![image.webp](/assets/img/posts/2024-12-05/2024-12-05-channel-talk-maven-repository-issue_2.webp)
 
 
 ## 원인 파악
@@ -32,7 +32,7 @@ tags:
 - Maven Central 지원이 2025년 8월 1일부터 중단될 예정이다.
 - 새로운 maven repository([maven.channel.io](https://maven.channel.io/))를 사용해야 한다.
 
-![image.png](/assets/img/posts/2024-12-05/2024-12-05-channel-talk-maven-repository-issue_3.png)
+![image.webp](/assets/img/posts/2024-12-05/2024-12-05-channel-talk-maven-repository-issue_3.webp)
 
 ## 해결 과정
 
@@ -64,7 +64,7 @@ allprojects {
 
 ```
 
-![image.png](/assets/img/posts/2024-12-05/2024-12-05-channel-talk-maven-repository-issue_4.png)
+![image.webp](/assets/img/posts/2024-12-05/2024-12-05-channel-talk-maven-repository-issue_4.webp)
 
 `devrepo.kakao.com`을 참조하고 있는데, 이건 예전 저장소라 삭제했다.
 

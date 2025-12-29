@@ -38,25 +38,25 @@ React 프로젝트에 GA4를 적용하기 위해 다음과 같은 도구들을 �
 1. Google Analytics([analytics.google.com](https://analytics.google.com/))에 접속하여 로그인
 
 2. 관리 > 만들기 > 속성 클릭
-![관리 > 만들기 > 속성 클릭](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_1.png)
+![관리 > 만들기 > 속성 클릭](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_1.webp)
 
 3. 속성 설정:
-![속성 설정](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_3.png)
+![속성 설정](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_3.webp)
     - 속성 이름(필수): [속성 이름]
     - 보고 시간대: "대한민국"
     - 통화: "KRW-한국 원"
 
 4. 비즈니스 세부정보 입력:
-![비즈니스 세부정보 입력](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_4.png)
+![비즈니스 세부정보 입력](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_4.webp)
 
 5. 플랫폼 선택:
-![플랫폼 선택](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_5.png)
+![플랫폼 선택](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_5.webp)
 
 6. 웹사이트 URL 정보 입력:
-![웹사이트 URL 정보 입력](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_6.png)
+![웹사이트 URL 정보 입력](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_6.webp)
 
 7. `index.html`의 `<head></head>`안에 아래 코드를 복사해서 삽입:
-![`index.html`의 `<head></head>`안에 아래 코드를 복사해서 삽입](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_7.png)
+![`index.html`의 `<head></head>`안에 아래 코드를 복사해서 삽입](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_7.webp)
 
 
 데이터 스트림을 생성하면 "측정 ID(G-로 시작하는 ID)"가 발급된다. 이 ID는 GA4 구현에 필요한 핵심 정보다.
@@ -151,10 +151,10 @@ history.listen((response) => {
 특히 중요했던 것은 상담 신청 버튼 클릭 이벤트의 추적이었다. GTM에서 태그와 트리거를 만들었다.
 
 - 태그
-![태그](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_8.png)
+![태그](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_8.webp)
 
 - 트리거
-![트리거](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_9.png)
+![트리거](/assets/img/posts/2024-12-04/ga4-gtm-integration-for-webview-project_9.webp)
 여기서 보이는 트리거의 이름이 아래 유틸리티 함수의 event명이 된다.
 
 그리고 이 트리거를 위한 별도의 유틸리티 함수를 만들어 관리했다:

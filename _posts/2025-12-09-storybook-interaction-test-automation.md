@@ -21,7 +21,7 @@ tags:
 - 함수형 테스트 스텝과 필드 매핑을 분리해서 **변경 지점을 단일화**했다
 - 레고 블록처럼 조립하는 구조로 **시나리오 작성 시간을 대폭 줄였다**
 
-![인터렉션 테스트 자동 실행](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_9.gif)
+![인터렉션 테스트 자동 실행](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_9.webp)
 
 ---
 
@@ -66,7 +66,7 @@ export const Default: Story = {
 - **취약성**: placeholder 하나 바뀌면 관련 스토리 전부 수정해야 한다
 - **가독성**: 테스트 의도보다 DOM 조작 코드가 더 많다
 
-![문제 상황 다이어그램](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_1.png)
+![문제 상황 다이어그램](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_1.webp)
 
 ---
 
@@ -83,7 +83,7 @@ export const Default: Story = {
 - context를 입력받아 작업을 수행
 - 여러 스텝을 순차적으로 조합 가능
 
-![해결 구조 다이어그램](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_2.png)
+![해결 구조 다이어그램](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_2.webp)
 
 ---
 
@@ -202,7 +202,7 @@ export const completeOrdererForm = (data: OrdererData): TestStep => async (ctx) 
 
 placeholder가 "이름을 입력해 주세요"에서 "주문자 이름"으로 바뀌어도, `ORDERER_PLACEHOLDERS.name` 한 줄만 수정하면 된다.
 
-![필드 매핑 코드](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_4.png)
+![필드 매핑 코드](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_4.webp)
 
 
 ### 4. 스토리에서 사용
@@ -234,7 +234,7 @@ export const InteractionDemo: Story = {
 
 테스트 의도가 명확하게 드러난다. "주문자 폼을 채우고, 채워진 값을 검증한다."
 
-![스토리 실행 화면](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_9.gif)
+![스토리 실행 화면](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_9.webp)
 
 ### 5. 도메인별 인터랙션 모듈
 
@@ -281,7 +281,7 @@ export const completeAllAgreements: TestStep = async (ctx) => {
 }
 ```
 
-![폴더 구조](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_5.png)
+![폴더 구조](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_5.webp)
 
 
 ---
@@ -337,7 +337,7 @@ await flow.run(
 )
 ```
 
-![레고 블록 비유 다이어그램](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_7.png)
+![레고 블록 비유 다이어그램](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_7.webp)
 
 ## 한계와 트레이드오프
 
@@ -474,4 +474,4 @@ await flow.run(
 
 수동 테스트에 지쳐있다면, 작은 것부터 자동화해보자. 가장 자주 반복하는 검증부터 스텝 함수로 만들어보면, 금방 패턴이 잡힌다.
 
-![3계층 구조 다이어그램](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_8.png)
+![3계층 구조 다이어그램](/assets/img/posts/2025-12-09/storybook-interaction-test-automation_8.webp)

@@ -24,7 +24,7 @@ tags:
 
 레포지토리를 이전하면서 마주친 까다로운 점은 다음과 같았다:
 
-![image.png](/assets/img/posts/2024-12-05/2024-12-05-git-repository-migration-with-history.png)
+![image.webp](/assets/img/posts/2024-12-05/2024-12-05-git-repository-migration-with-history.webp)
 
 1. 기존 레포지토리 A의 커밋 히스토리를 모두 유지해야 했다.
 2. 새로운 레포지토리 B에는 이미 누군가가 레포지토리 A의 폴더 내용을 복사해서 푸시해둔 상태였다.

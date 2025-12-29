@@ -45,6 +45,16 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
+      - name: Cache Jekyll build
+        uses: actions/cache@v4
+        with:
+          path: |
+            .jekyll-cache
+            _site
+          key: jekyll-${{ hashFiles('**/*.md', '**/*.html', '_config.yml') }}
+          restore-keys: |
+            jekyll-
+
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:

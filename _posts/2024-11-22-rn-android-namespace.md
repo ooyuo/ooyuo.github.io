@@ -161,7 +161,7 @@ processNodeModules();
 2. postinstall 스크립트가 실행되어 필요한 라이브러리에 namespace가 추가됨
 3. patch-package가 실행되어 수정된 내용이 패치로 저장됨
 
-![npm install > 출력 결과](/assets/img/posts/2024-11-22/rn-android-namespace.png)
+![npm install > 출력 결과](/assets/img/posts/2024-11-22/rn-android-namespace.webp)
 
 출력 결과를 보면 어떤 라이브러리에 namespace가 추가되었고, 어떤 것은 이미 namespace가 있어서 건너뛰었는지 확인할 수 있다.
 
