@@ -3,7 +3,10 @@
     "allow": [
       "WebFetch(domain:ooyuo.github.io)",
       "Bash(cat:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)"
     ]
   }
 }
